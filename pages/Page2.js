@@ -22,7 +22,7 @@ const Page2 = ({ navigation, route }) => {
                 <View style={styles.contText}>
                     <Text style={styles.textos}>Sensação Térmica: {route.params.sensTermica}ºC</Text>
                     <Text style={styles.textos}>Descrição: {route.params.descricao}</Text>
-                    <Text style={styles.textos}>Humidade: {route.params.humidade}%</Text>
+                    <Text style={styles.textos}>Umidade: {route.params.humidade}%</Text>
                 </View>
                 <Image
                     style={styles.images}
