@@ -24,7 +24,7 @@ const Home = ({ navigation }) => {
                 placeholder='Insira a cidade desejada'
             />
             <TouchableOpacity style={styles.button} onPress={() => { buscarTemperatura() }}>
-                <Text style={styles.textButton}>Acessar</Text>
+                <Text style={styles.textButton}>Consultar</Text>
             </TouchableOpacity>
         </View>
         </LinearGradient>
@@ -57,6 +57,7 @@ const styles = StyleSheet.create({
     textButton: {
         color: '#fff',
         fontSize: 20,
+        fontWeight: 'bold',
     },
     input: {
         height: 50,

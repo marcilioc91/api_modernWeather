@@ -16,6 +16,7 @@ export const consultaTemperatura = async (cidade) => {
         icone: res.data.weather[0].icon,
         humidade: res.data.main.humidity,
         sensTermica: parseInt(res.data.main.feels_like),
+        pais: res.data.sys.country,
     }
 
     return temperatura;

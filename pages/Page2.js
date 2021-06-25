@@ -7,27 +7,28 @@ const Page2 = ({ navigation, route }) => {
     return (
         <View style={styles.container}>
             <LinearGradient
-                colors={['#14355e', '#ddecff']}
+                colors={['#ddecff', '#14355e']}
+                start={[4.0,0.0]}
                 style={styles.gradient}
             >
                 <View style={styles.contTitle}>
                     <Text style={styles.title}>{(route.params.cidadePesquisada).toUpperCase()}</Text>
                 </View>
                 <Text style={styles.titleGr}>{route.params.temperatura}ºC</Text>
-
-                <View style={styles.temps}>
+                <View style={styles.ContTemp}>
                     <Text style={styles.textosSub}>Máx.: {route.params.tempMax}ºC  </Text>
                     <Text style={styles.textosSub}>Mín.: {route.params.tempMin}ºC</Text>
-                </View>
-                <View style={styles.contText}>
-                    <Text style={styles.textos}>Sensação Térmica: {route.params.sensTermica}ºC</Text>
-                    <Text style={styles.textos}>Descrição: {route.params.descricao}</Text>
-                    <Text style={styles.textos}>Umidade: {route.params.humidade}%</Text>
                 </View>
                 <Image
                     style={styles.images}
                     source={{ uri: `https://openweathermap.org/img/wn/${route.params.icone}@2x.png` }}
                 />
+                <View style={styles.contText}>
+                    <Text style={styles.textos}>País: {route.params.pais}</Text>
+                    <Text style={styles.textos}>Sensação Térmica: {route.params.sensTermica}ºC</Text>
+                    <Text style={styles.textos}>Descrição: {route.params.descricao}</Text>
+                    <Text style={styles.textos}>Umidade: {route.params.humidade}%</Text>
+                </View>
                 <TouchableOpacity
                     onPress={() => { (navigation.goBack()) }}
                     style={styles.button}>
@@ -46,9 +47,21 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     contTitle: {
-        paddingTop: 40,
+        paddingTop: 15,
         alignItems: 'center',
         maxWidth: '80%',
+    },
+    contText: {
+        alignItems: 'center',
+        padding: 25,
+    },
+    ContTemp: {
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+    images: {
+        height: 120,
+        width: 120,
     },
     title: {
         fontSize: 20,
@@ -61,14 +74,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingTop: 70,
     },
-    temps: {
-        flexDirection: 'row',
-        alignItems: 'center',
-    },
-    images: {
-        height: 100,
-        width: 100,
-    },
     button: {
         borderRadius: 10,
         paddingTop: 10,
@@ -76,13 +81,13 @@ const styles = StyleSheet.create({
         width: '80%',
         marginTop: 10,
         alignItems: 'center',
-        backgroundColor: '#14355e',
+        backgroundColor: '#fff',
     },
     textos: {
         fontSize: 22,
         fontWeight: 'normal',
         color: '#fff',
-        margin: 5,
+        margin: 7,
     },
     textosSub: {
         fontSize: 15,
@@ -92,14 +97,10 @@ const styles = StyleSheet.create({
         color: '#fff',
         fontSize: 55,
     },
-    contText: {
-        alignItems: 'center',
-        padding: 35,
-    },
     txtBotao: {
         fontSize: 20,
         fontWeight: 'bold',
-        color: '#fff',
+        color: '#14355e',
     }
 });
 
